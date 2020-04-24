@@ -40,7 +40,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_OTA_ASSERT_DEVICE := kiwi
 
 # Prebuit Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/recovery/prebuilt/zimage
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/recovery/prebuilt/zImage
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 BOARD_KERNEL_PAGESIZE := 2048
