@@ -40,19 +40,11 @@ TARGET_NO_BOOTLOADER := true
 TARGET_OTA_ASSERT_DEVICE := kiwi
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/recovery/kernel
-BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_BASE        := 0x80000000
+BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_SEPARATED_DT := true
-BOARD_DTBTOOL_ARGS := -2
-BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
-BOARD_RAMDISK_OFFSET     := 0x02000000
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := kiwi-64_defconfig
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01E00000 --dt $(DEVICE_PATH)/recovery/dt.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/recovery/kernel
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
